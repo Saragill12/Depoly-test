@@ -9,30 +9,10 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState("Saru");
 
-//   const SearchUser = async () => {
-//     setLoading(true);
-//     try { 
-//         const res = axios.get(`https://api.github.com/search/users?q=${value}`,{
-//               headers: {
-//                 Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`, 
-//               },
-//             }
-//           ).then((data) => {
-//             console.log(data,'sara data')
-//           });
-//     }
-//     catch (error) {
-//         console.error(error);
-//       } finally {
-//         setLoading(false);
-//       }
-//   };
-
-// https://api.github.com/search/users?q=${value}
 
 const SearchUser =() => {
     setLoading(true);
-    let res = axios.get(`https://api.github.com/search/users?q=${value}`).then((data) => {
+    let res = axios.get(`${ptocess.env.REACT_APP_GITHUB_URL_}/search/users?q=${value}`).then((data) => {
         console.log(data)
         setUsers(data.data);
         setLoading(false);
@@ -40,7 +20,6 @@ const SearchUser =() => {
 }
 
 
-console.log(users,'users')
 
   return (
     <div>
